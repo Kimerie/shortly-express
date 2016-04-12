@@ -340,4 +340,5 @@ describe('', function() {
 
   }); // 'Account Login'
 
+  });
 });
