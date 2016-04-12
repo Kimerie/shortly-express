@@ -40,10 +40,12 @@ function(req, res) {
   });
 });
 
-app.post('/links', 
+app.post('/links',  
 function(req, res) {
+  console.log('---------------------------------------',req.body.url)
   var uri = req.body.url;
-
+ 
+  // console.log(uri);
   if (!util.isValidUrl(uri)) {
     console.log('Not a valid url: ', uri);
     return res.send(404);
