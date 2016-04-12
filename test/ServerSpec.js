@@ -144,12 +144,12 @@ describe('', function() {
       it('Fetches the link url title', function (done) {
         requestWithSession(options, function(error, res, body) {
           db.knex('urls')
-            .where('title', '=', 'GitHub · Where software is built')
+            .where('title', '=', 'How people build software · GitHub')
             .then(function(urls) {
               if (urls['0'] && urls['0']['title']) {
                 var foundTitle = urls['0']['title'];
               }
-              expect(foundTitle).to.equal('GitHub · Where software is built');
+              expect(foundTitle).to.equal('How people build software · GitHub');
               done();
             });
         });
@@ -165,7 +165,7 @@ describe('', function() {
         // save a link to the database
         link = new Link({
           url: 'http://www.github.com/',
-          title: 'GitHub · Where software is built',
+          title: 'How people build software · GitHub',
           base_url: 'http://127.0.0.1:4568'
         });
         link.save().then(function(){
@@ -210,7 +210,7 @@ describe('', function() {
         };
 
         requestWithSession(options, function(error, res, body) {
-          expect(body).to.include('"title":"GitHub · Where software is built"');
+          expect(body).to.include('"title":"How people build software · GitHub"');
           expect(body).to.include('"code":"' + link.get('code') + '"');
           done();
         });
@@ -341,3 +341,5 @@ describe('', function() {
   }); // 'Account Login'
 
 });
+});
+
