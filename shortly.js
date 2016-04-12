@@ -35,6 +35,7 @@ function(req, res) {
 
 app.get('/links', 
 function(req, res) {
+  // res.redirect('/');
   Links.reset().fetch().then(function(links) {
     res.send(200, links.models);
   });
@@ -80,7 +81,10 @@ function(req, res) {
 // Write your dedicated authentication routes here
 // e.g. login, logout, etc.
 /************************************************************/
-
+app.post('/login',
+  function(req,res) {
+  
+});
 
 
 /************************************************************/
